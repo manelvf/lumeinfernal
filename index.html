@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <title>Lume Infernal</title>
+    <style type="text/css">
+      .dosbox-container { width: 640px; height: 400px; }
+      .dosbox-container > .dosbox-overlay { background: url(lume.png); }
+      .dosbox-start { 
+	      font-size: 35px !important;
+	      background-color: #232;
+      }
+      #dosbox_outer {
+		width: 50%;
+		margin: 0 auto;
+      }
+      .contedor {
+	      text-align: center;
+      }
+      h1 {
+	      font-family: 'Shrikhand' !important;
+	      color: red !important;
+      }
+      body {
+	      background-color: #EE5 !important;
+      }
+
+	  div.button {
+	      padding: 5px;
+	      min-width: 10%;
+	      float:left;
+	      /*margin-right: 10px;*/
+	      background-color: white;
+	      border: 1px solid black;
+	      border-radius: 4px;
+	      cursor: pointer;
+	      text-align: center;
+	  }
+    </style>
+  </head>
+  <body>
+    <link rel=StyleSheet href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+
+    <div class="container contedor">
+	    <h1>Lume Infernal</h1>
+
+    <br/>
+
+    <div id="dosbox_outer">
+	    <div id="dosbox"></div>
+    </div>
+    <br/>
+    <br/>
+    <button onclick="dosbox.requestFullScreen();">Make fullscreen - Pantalla completa</button>
+
+    <br/>
+    <br/>
+
+    <div style="width:50%; min-width:640px; margin: 0 auto; text-align:left; ">
+    <div class="button" id="english_button" style="display:none;">English</div>
+    &nbsp; 
+    <div class="button" id="galego_button">Galego</div>
+
+<br/>
+<br/>
+
+<pre id="english_text">
+<b>"Lume Infernal"</b> ("Devil's Fire" in Galician) is a MS-DOS game I created in 1997
+using the old homebrew C-- compiler. Now you can play it in the browser.
+
+Goal of the game is to "clean" the screen while avoiding two badass enemies.
+Enemies speed increases with time. The game has a total of 20 levels.
+
+Gameplay keys:
+
+- Enter: Starts the game and switches to a secondary background.
+- Arrow keys: Move the game's hero.
+- Esc: let's you pause the game and leave it if you want. 
+
+You can also move the mouse to move the game's hero.
+
+Notice that the background images are not the original.
+The original ones were not appropiate, so I replaced them for photographies
+of my hometown. So, enjoy.  
+
+Uses DOSBOX.
+
+Author: Manel Vilar (manelvf@gmail.com) - 1997
+All rights reserved ;)
+
+</pre>
+
+<pre id="galego_text" style="display: none;">
+<b>"Lume Infernal"</b> (Devil's Fire) foi un xogo para MS-DOS que creei en 1997
+empregando un linguaxe a medias entre C e ensamblador chamada Sphinx C--.
+Agora podes xogalo no navegador.
+
+O obxetivo é limpar a pantalla mentres evitar tocar os dous adversarios
+que a patrullan. A velocidade dos inimigos aumenta segundo se avanzan as pantallas.
+O xogo ten un total de 20 niveis.
+
+Teclas do xogo:
+
+- Enter: Comeza o xogo e permite ver un fondo secundario.
+- Frechas do cursor: Move o protagonista pola pantalla.
+- Escape: Permite pausar e abandonar o xogo. 
+
+O protagonista tamén se pode mover co rato.
+You can also move the mouse to move the game's hero.
+
+As imaxes do fondo non son as orixinais de 1997. Tiven que
+mudalas xa que o contido das orixinais non era apropiado.
+As fotos empregadas agora son da comarca do Ortegal.
+
+Autor: Manel Vilar (manelvf@gmail.com) - 1997
+Todos os dereitos reservados ;)
+
+</pre>    
+</div>
+
+    <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
+
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script-->
+    <!--script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
+
+    <script type="text/javascript">
+      var dosbox = new Dosbox({
+        id: "dosbox",
+        onload: function (dosbox) {
+		  dosbox.run("lumeinfernal.zip", "./lume.com");
+        },
+        onrun: function (dosbox, app) {
+          console.log("Executando '" + app + "' ");
+        }
+      });
+
+      galego_button.addEventListener("click", function() {
+          galego_text.style.display = '';
+          english_text.style.display = 'none';
+          galego_button.style.display = 'none';
+          english_button.style.display = '';
+      });
+
+      english_button.addEventListener("click", function() {
+          galego_text.style.display = 'none';
+          english_text.style.display = '';
+          galego_button.style.display = '';
+          english_button.style.display = 'none';
+      });
+
+    </script>
+  </body>
+</html>
